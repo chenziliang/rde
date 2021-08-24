@@ -1,0 +1,17 @@
+alias bin="cd ~/work/bin; pwd"
+alias work="cd ~/Work/; pwd"
+alias test="cd ~/Work/test; pwd"
+alias splunk="cd /Applications/Splunk; pwd"
+alias spweb="cd /Applications/Splunk/lib/python2.7/site-packages/splunk; pwd"
+alias tml="tmux select-pane -L"
+alias tmr="tmux select-pane -R"
+alias tmd="tmux select-pane -D"
+alias tmu="tmux select-pane -U"
+alias tmn="tmux new -s "
+alias tma="tmux attach -t "
+
+alias grep='grep --color'
+alias egrep='egrep --color'
+alias fgrep='fgrep --color'
+
+alias komodo='open -a "/Applications/Komodo Edit 8.app"'

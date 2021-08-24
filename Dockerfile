@@ -44,6 +44,7 @@ RUN apt-get update \
     && apt-get install \
         vim \
         tmux \
+        git \
         --yes --no-install-recommends
 
 # rust
@@ -59,5 +60,6 @@ RUN apt-get update \
 
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
+ENV SHELL /usr/bin/zsh
 
 CMD ["/bin/zsh"]

@@ -1,0 +1,99 @@
+
+tmux
+=============
+
+window
+------
+  * ctrl + a + c    # new window
+  * ctrl + a + w    # list window
+  * ctrl + a + [0-9] # swtich to window [0-9]
+  * ctrl + a + f    # find window
+  * ctrl + a + ,    # name window
+  * ctrl + a + &    # close window
+
+pane
+-------
+  * ctrl + a + %    # horizontal split
+  * ctrl + a + "    # vertical split
+  * ctrl + a + o    # swap panes
+  * ctrl + a + x    # kill pane
+  * ctrl + a + space  # toggle between panes (horizontal <-> vertical)
+
+paste mode
+-------
+  * ctrl + a + [ # enter paste mode
+
+misc
+-------
+  * ctrl + a + d    # detach session
+  * ctrl + a + ?    # list shortcuts
+
+
+vim
+=============
+vim -p file1 file2 ... # open file in tabs
+:Te - tab explore
+gt - next tab
+gT - prev tab
+{i}gt - goto tab i
+:tabclose {i} - close tab i
+
+ctrl + b/p  # auto complete
+guu         # convert a line to lowcase
+gUU         # convert a line to uppercase
+:r!date     # insert date
+
+>>          # right indent
+<<          # left indent
+=           # indent as the line above
+=% + =%     # indent block
+G=gg or gg=G # ident while file
+ctrl + e     # move screen one line up
+ctrl + y     # move screen one line down
+ctrl + u     # move screen up 1/2 page
+ctrl + d     # move screen down 1/2 page
+ctrl + b     # move screen up 1 page
+ctrl + f     # move screen down 1 page
+zz           # move current line to the middle of the screen
+zt           # move current line to the top of the screen
+zb           # move current line to the bottom of the screen
+dfk      # delete until k
+cfk      # delete until k and then goes into insert mode
+db       # delete back by one word
+yG       # copy everything until the end of the file
+d/foo    # cut from the current line to the next line containing the string "foo"
+y?bar    # copy from the current line to the most recent (previous) line containing "bar"
+:.,$j    # from the current line to the last line, join them all into one line
+:%       # synonymous with :1,$ (all the lines)
+
+:... g  # globally applying a subsequent command to all lines which match a pattern (regular expression)
+:... v  # conVerse. applies such a command to all lines which do NOT match the given pattern
+:.,+21g/foo/d  # delete any lines containing the string "foo" from the current one through the next 21 lines"
+:.,$v/bar/d    # "from here to the end of the file, delete any lines which DON'T contain the string "bar.""
+
+
+ctrlp
+-------
+  * ,,    # enter ctrlp
+  * ctrl + c or g    # close ctrlp
+
+
+quickfix
+-------
+  * :cc    #
+  * :cw    # open quckfix win
+  * :cn    # jump to next error
+  * :cp    # jump to last error
+  * :cl    # list all errors
+
+easygrep
+------
+  * <Leader>vv    # grep word under cursor
+  * <Leader>vV    # match whole world
+  * <Leader>va    # Like vv, but add to existing list
+  * <Leader>vA    # Like vV, but add to existing list
+  * <Leader>vr    # global replace
+  * <Leader>vo    # Select the files to search in and set grep options
+  * : ReplaceUndo
+  * Replace [target][replacement]
+  * GrepOptions [arg]

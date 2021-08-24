@@ -1,0 +1,5 @@
+alias tml="tmux select-pane -L"
+alias tmr="tmux select-pane -R"
+alias tmd="tmux select-pane -D"
+alias tmu="tmux select-pane -U"
+alias tmn="tmux new -s "

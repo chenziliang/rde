@@ -1,0 +1,19 @@
+if [ -e ~/.alias_local ]; then
+    source ~/.alias_local
+fi
+
+if [[ ${SHELL} =~ "/bin/bash" ]]; then
+    #PS1="\[\e[0;31m\]\u@λ\[\e[0;33m\]:\[\e[1;34m\] \W \[\e[1;37m\]$ \[\e[m\]"
+    PS1="\[\e[0;31m\]\u@λ+\[\e[0;33m\]:\[\e[1;34m\] \w \[\e[1;37m\]$ \[\e[m\]"
+    bind '"\C-b":beginning-of-line'
+fi
+
+if [[ ${SHELL} =~ "/bin/zsh" ]] || [[ ${SHELL} =~ "/usr/bin/zsh" ]]; then
+    PS1="%{%B%F{red}%}%n@λ+${spx} %{%F{yellow}%}%1/%{%F{red}%} %% %{%F{white}%}%b"
+    bindkey "^R" history-incremental-search-backward
+    bindkey "^S" history-incremental-search-forward
+    bindkey "^B" beginning-of-line
+    bindkey "^E" end-of-line
+fi
+
+export PS1
