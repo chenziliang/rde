@@ -2,12 +2,14 @@
 
 usage()
 {
-    echo "rde.sh -r <root> -v <working-dir1> -v <working_dir2> ..."
+    echo "rde -r <root> -v <working-dir1> -v <working_dir2> <other docker args> ..."
     exit 1
 }
 
 IMAGE="rde"
 WORKING_DIRS=()
+# Other arguments are passed over to docker container directly
+OTHERS=()
 
 while [[ $# -gt 0 ]]; do
     key="$1"
@@ -25,6 +27,12 @@ while [[ $# -gt 0 ]]; do
             ;;
         -i|--image)
             IMAGE="$2"
+            shift
+            shift
+            ;;
+        -*)
+            OTHERS+=("$1")
+            OTHERS+=("$2")
             shift
             shift
             ;;
@@ -50,6 +58,7 @@ do
     fi
 done
 
-docker_cli="${docker_cli} -w /root --cap-add=sys_nice --hostname λ -it ${IMAGE}"
+docker_cli="${docker_cli} -w /root ${OTHERS[@]} --cap-add=sys_nice --hostname λ -it ${IMAGE}"
 echo "Running ${docker_cli}"
+
 exec $docker_cli
