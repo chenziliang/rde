@@ -11,20 +11,77 @@
 # hlsearch on (H) or off (h):
 ~h
 # Last Search Pattern:
-~MSle0~/submodule
+~Msle0~/\<_boost_py_component3\>
+
+# Last Substitute Search Pattern:
+~MSle0&include "logdevice
 
 # Last Substitute String:
 $
 
 # Command Line History (newest to oldest):
-:wq
-|2,0,1629776592,,"wq"
-:w
-|2,0,1629776589,,"w"
 :q
-|2,0,1629776579,,"q"
+|2,0,1630461031,,"q"
+:wq
+|2,0,1630458948,,"wq"
+:w
+|2,0,1630458889,,"w"
+:44
+|2,0,1630458615,,"44"
+:W
+|2,0,1630126176,,"W"
+:b src/admin/if/nodes.thrift
+|2,0,1630108581,,"b src/admin/if/nodes.thrift"
+:%s#include "logdevice#include "src#g
+|2,0,1630107355,,"%s#include \"logdevice#include \"src#g"
+:e /clog/src/admin/if/exceptions.thrift
+|2,0,1630107154,,"e /clog/src/admin/if/exceptions.thrift"
+:e /clog/src/admin/if/logtree.thrift
+|2,0,1630107137,,"e /clog/src/admin/if/logtree.thrift"
+:e /clog/src/common/configuration/nodes/NodesConfiguration.thrift
+|2,0,1630107044,,"e /clog/src/common/configuration/nodes/NodesConfiguration.thrift"
+:e src/CMakeLists.txt
+|2,0,1630105972,,"e src/CMakeLists.txt"
+:e CMake/build-config.cmake
+|2,0,1630101663,,"e CMake/build-config.cmake"
+:46
+|2,0,1630101582,,"46"
+:%s#LOGDEVICE_SERVER_DIR#CMAKE_CURRENT_SOURCE_DIR#g
+|2,0,1630101428,,"%s#LOGDEVICE_SERVER_DIR#CMAKE_CURRENT_SOURCE_DIR#g"
+:99
+|2,0,1630101336,,"99"
+:b src/CMakeLists.txt
+|2,0,1630101332,,"b src/CMakeLists.txt"
+:pwd
+|2,0,1630101240,,"pwd"
+:%s#LOGDEVICE_COMMON_DIR#CMAKE_CURRENT_SOURCE_DIR#g
+|2,0,1630101178,,"%s#LOGDEVICE_COMMON_DIR#CMAKE_CURRENT_SOURCE_DIR#g"
+:108
+|2,0,1630101091,,"108"
+:%s#LOGDEVICE_DIR#CMAKE_SOURCE_DIR#g
+|2,0,1630100992,,"%s#LOGDEVICE_DIR#CMAKE_SOURCE_DIR#g"
+:%s#CMAKE_CURRENT_SOURCE_DIR#CMAKE_SOURCE_DIR#g
+|2,0,1630100951,,"%s#CMAKE_CURRENT_SOURCE_DIR#CMAKE_SOURCE_DIR#g"
+:vsp
+|2,0,1630100783,,"vsp"
+:b 2
+|2,0,1630100123,,"b 2"
 :q!
-|2,0,1629773323,,"q!"
+|2,0,1630100089,,"q!"
+:e
+|2,0,1630100085,,"e"
+:b 1
+|2,0,1630099302,,"b 1"
+:54
+|2,0,1630098996,,"54"
+:413
+|2,0,1629816826,,"413"
+:1139
+|2,0,1629791178,,"1139"
+:1039
+|2,0,1629791150,,"1039"
+:1309
+|2,0,1629791132,,"1309"
 ::PluginInstall
 |2,0,1629773023,,":PluginInstall"
 :103
@@ -32,7 +89,87 @@ $
 
 # Search String History (newest to oldest):
 ? \s\+$
-|2,1,1629776592,,"\\s\\+$"
+|2,1,1630458948,,"\\s\\+$"
+? \<_boost_py_component3\>
+|2,1,1630458754,,"\\<_boost_py_component3\\>"
+? \<_boost_py_component2\>
+|2,1,1630458745,,"\\<_boost_py_component2\\>"
+? \<_boost_py_component1\>
+|2,1,1630458625,,"\\<_boost_py_component1\\>"
+? \<_BOOST_PY_COMP\>
+|2,1,1630458620,,"\\<_BOOST_PY_COMP\\>"
+?/thrift_generate
+|2,1,1630126328,47,"thrift_generate"
+? \<thrift_object\>
+|2,1,1630126142,,"\\<thrift_object\\>"
+? \<thrift_generate\>
+|2,1,1630126136,,"\\<thrift_generate\\>"
+? \<_adminapi_if_include_prefix\>
+|2,1,1630108470,,"\\<_adminapi_if_include_prefix\\>"
+? \<include_directories\>
+|2,1,1630108445,,"\\<include_directories\\>"
+?/common
+|2,1,1630108379,47,"common"
+?/nodes
+|2,1,1630108302,47,"nodes"
+?/nodesconfiguration.thr
+|2,1,1630108245,47,"nodesconfiguration.thr"
+?/logdevice\/
+|2,1,1630108178,47,"logdevice\\/"
+?/common/
+|2,1,1630108140,47,"common/"
+?/logdevice
+|2,1,1630107384,47,"logdevice"
+? include "logdevice
+|2,1,1630107355,,"include \"logdevice"
+? \<logdevice\>
+|2,1,1630107212,,"\\<logdevice\\>"
+? \<PYTHON_LIBRARIES\>
+|2,1,1630105989,,"\\<PYTHON_LIBRARIES\\>"
+?/python
+|2,1,1630105980,47,"python"
+?/rocksdb
+|2,1,1630102214,47,"rocksdb"
+? \<CMAKE_CURRENT_SOURCE_DIR\>
+|2,1,1630101563,,"\\<CMAKE_CURRENT_SOURCE_DIR\\>"
+? \<LOGDEVICE_CLIENT_SRC_DIR\>
+|2,1,1630101516,,"\\<LOGDEVICE_CLIENT_SRC_DIR\\>"
+?/cmakel
+|2,1,1630101474,47,"cmakel"
+? LOGDEVICE_SERVER_DIR
+|2,1,1630101428,,"LOGDEVICE_SERVER_DIR"
+? \<LOGDEVICE_SERVER_DIR\>
+|2,1,1630101344,,"\\<LOGDEVICE_SERVER_DIR\\>"
+? LOGDEVICE_COMMON_DIR
+|2,1,1630101178,,"LOGDEVICE_COMMON_DIR"
+? \<LOGDEVICE_COMMON_DIR\>
+|2,1,1630101075,,"\\<LOGDEVICE_COMMON_DIR\\>"
+?/cmake
+|2,1,1630101055,47,"cmake"
+? LOGDEVICE_DIR
+|2,1,1630100992,,"LOGDEVICE_DIR"
+? \<LOGDEVICE_STAGING_DIR\>
+|2,1,1630100960,,"\\<LOGDEVICE_STAGING_DIR\\>"
+? CMAKE_CURRENT_SOURCE_DIR
+|2,1,1630100951,,"CMAKE_CURRENT_SOURCE_DIR"
+?/external
+|2,1,1630100815,47,"external"
+?/current_source_dir
+|2,1,1630100193,47,"current_source_dir"
+?/ThriftLibrary
+|2,1,1630100145,47,"ThriftLibrary"
+?/fin
+|2,1,1630099290,47,"fin"
+?/Gtest
+|2,1,1630098616,47,"Gtest"
+?/Glog
+|2,1,1630098612,47,"Glog"
+?/glog
+|2,1,1630097707,47,"glog"
+?/cluster
+|2,1,1629867015,47,"cluster"
+?/zook
+|2,1,1629867001,47,"zook"
 ?/submodule
 |2,1,1629775639,47,"submodule"
 ?/git
@@ -55,259 +192,643 @@ $
 # Debug Line History (newest to oldest):
 
 # Registers:
+"0	CHAR	0
+	${_boost_py_component}
+|3,0,0,0,1,0,1630458738,"${_boost_py_component}"
 ""1	LINE	0
-	vim:tw=78:ts=8:ft=help
-|3,1,1,1,1,0,1629773164,"vim:tw=78:ts=8:ft=help"
+	
+|3,1,1,1,1,0,1630458887,""
 "2	LINE	0
-	
-|3,0,2,1,1,0,1629773164,""
+	message(STATUS "xxxxxxxxxxxxxxx   Boost Python Component ${_boost_py_component} ${_boost_py_component2} ${_boost_py_component3} found")
+|3,0,2,1,1,0,1630458885,"message(STATUS \"xxxxxxxxxxxxxxx   Boost Python Component ${_boost_py_component} ${_boost_py_component2} ${_boost_py_component3} found\")"
 "3	LINE	0
-	   First release.
-|3,0,3,1,1,0,1629773164,"   First release."
-"4	LINE	0
-	1.0 - 2003-04-22
-|3,0,4,1,1,0,1629773164,"1.0 - 2003-04-22"
-"5	LINE	0
 	
-|3,0,5,1,1,0,1629773164,""
+|3,0,3,1,1,0,1630126831,""
+"4	LINE	0
+	  message("--------------${thrift_include_directories}")
+|3,0,4,1,1,0,1630126830,"  message(\"--------------${thrift_include_directories}\")"
+"5	LINE	0
+	  message(FATAL_ERROR "--------------${thrift_include_directories}")
+|3,0,5,1,1,0,1630126282,"  message(FATAL_ERROR \"--------------${thrift_include_directories}\")"
 "6	LINE	0
-	   Fixed the highlighting so it works when 'fg' and 'bg' aren't yet defined.
-|3,0,6,1,1,0,1629773164,"   Fixed the highlighting so it works when 'fg' and 'bg' aren't yet defined."
+	  message(FATAL_ERROR "--------------${thrift_include_directories}")
+|3,0,6,1,1,0,1630126163,"  message(FATAL_ERROR \"--------------${thrift_include_directories}\")"
 "7	LINE	0
-	   Fixed the fileformat so it doesn't include ^M's.
-|3,0,7,1,1,0,1629773164,"   Fixed the fileformat so it doesn't include ^M's."
+	  message(FATAL_ERROR "--------------${thrift_include_directories}")
+|3,0,7,1,1,0,1630126130,"  message(FATAL_ERROR \"--------------${thrift_include_directories}\")"
 "8	LINE	0
-	1.1 - 2003-04-27
-|3,0,8,1,1,0,1629773164,"1.1 - 2003-04-27"
+	
+|3,0,8,1,1,0,1630126130,""
 "9	LINE	0
 	
-|3,0,9,1,1,0,1629773164,""
+|3,0,9,1,1,0,1630100929,""
+"-	CHAR	0
+	    
+|3,0,36,0,1,0,1630458722,"    "
 
 # File marks:
-'0  11  23  ~/.bashrc_local
-|4,48,11,23,1629776592,"~/.bashrc_local"
-'1  11  0  ~/.bashrc_local
-|4,49,11,0,1629776579,"~/.bashrc_local"
-'2  56  0  ~/.zshrc
-|4,50,56,0,1629776558,"~/.zshrc"
-'3  303  0  ~/.dir_colors
-|4,51,303,0,1629776447,"~/.dir_colors"
-'4  303  0  ~/.dir_colors
-|4,52,303,0,1629776398,"~/.dir_colors"
-'5  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,53,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
-'6  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,54,46,0,1629775613,"~/.zprezto/runcoms/zpreztorc"
-'7  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,55,46,0,1629775613,"~/.zprezto/runcoms/zpreztorc"
-'8  76  10  ~/zpreztorc
-|4,56,76,10,1629775603,"~/zpreztorc"
-'9  10  0  ~/zpreztorc
-|4,57,10,0,1629775249,"~/zpreztorc"
+'0  1  0  CMake/logdevice-deps.cmake
+|4,48,1,0,1630461031,"CMake/logdevice-deps.cmake"
+'1  31  10  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,49,31,10,1630458948,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+'2  35  0  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,50,35,0,1630458901,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+'3  35  0  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,51,35,0,1630458901,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+'4  22  78  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,52,22,78,1630458756,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+'5  24  78  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,53,24,78,1630458756,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+'6  22  78  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,54,22,78,1630458756,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+'7  24  78  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,55,24,78,1630458756,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+'8  1  0  CMake/logdevice-deps.cmake
+|4,56,1,0,1630458597,"CMake/logdevice-deps.cmake"
+'9  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,57,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
 
 # Jumplist (newest first):
--'  11  23  ~/.bashrc_local
-|4,39,11,23,1629776592,"~/.bashrc_local"
--'  1  0  ~/.bashrc_local
-|4,39,1,0,1629776584,"~/.bashrc_local"
--'  11  0  ~/.bashrc_local
-|4,39,11,0,1629776579,"~/.bashrc_local"
--'  1  0  ~/.bashrc_local
-|4,39,1,0,1629776570,"~/.bashrc_local"
--'  56  0  ~/.zshrc
-|4,39,56,0,1629776558,"~/.zshrc"
--'  56  0  ~/.zshrc
-|4,39,56,0,1629776558,"~/.zshrc"
--'  56  0  ~/.zshrc
-|4,39,56,0,1629776558,"~/.zshrc"
--'  56  0  ~/.zshrc
-|4,39,56,0,1629776558,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1629776535,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1629776535,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1629776535,"~/.zshrc"
--'  1  0  ~/.zshrc
-|4,39,1,0,1629776535,"~/.zshrc"
--'  303  0  ~/.dir_colors
-|4,39,303,0,1629776447,"~/.dir_colors"
--'  303  0  ~/.dir_colors
-|4,39,303,0,1629776447,"~/.dir_colors"
--'  303  0  ~/.dir_colors
-|4,39,303,0,1629776447,"~/.dir_colors"
--'  303  0  ~/.dir_colors
-|4,39,303,0,1629776447,"~/.dir_colors"
--'  303  0  ~/.dir_colors
-|4,39,303,0,1629776447,"~/.dir_colors"
--'  303  0  ~/.dir_colors
-|4,39,303,0,1629776447,"~/.dir_colors"
--'  303  0  ~/.dir_colors
-|4,39,303,0,1629776447,"~/.dir_colors"
--'  303  0  ~/.dir_colors
-|4,39,303,0,1629776447,"~/.dir_colors"
--'  1  0  ~/.dir_colors
-|4,39,1,0,1629776446,"~/.dir_colors"
--'  1  0  ~/.dir_colors
-|4,39,1,0,1629776446,"~/.dir_colors"
--'  1  0  ~/.dir_colors
-|4,39,1,0,1629776446,"~/.dir_colors"
--'  1  0  ~/.dir_colors
-|4,39,1,0,1629776446,"~/.dir_colors"
--'  1  0  ~/.dir_colors
-|4,39,1,0,1629776446,"~/.dir_colors"
--'  1  0  ~/.dir_colors
-|4,39,1,0,1629776446,"~/.dir_colors"
--'  1  0  ~/.dir_colors
-|4,39,1,0,1629776446,"~/.dir_colors"
--'  1  0  ~/.dir_colors
-|4,39,1,0,1629776446,"~/.dir_colors"
--'  303  0  ~/.dir_colors
-|4,39,303,0,1629776398,"~/.dir_colors"
--'  303  0  ~/.dir_colors
-|4,39,303,0,1629776398,"~/.dir_colors"
--'  303  0  ~/.dir_colors
-|4,39,303,0,1629776398,"~/.dir_colors"
--'  303  0  ~/.dir_colors
-|4,39,303,0,1629776398,"~/.dir_colors"
--'  303  0  ~/.dir_colors
-|4,39,303,0,1629776398,"~/.dir_colors"
--'  303  0  ~/.dir_colors
-|4,39,303,0,1629776398,"~/.dir_colors"
--'  303  0  ~/.dir_colors
-|4,39,303,0,1629776398,"~/.dir_colors"
--'  303  0  ~/.dir_colors
-|4,39,303,0,1629776398,"~/.dir_colors"
--'  1  0  ~/.dir_colors
-|4,39,1,0,1629776396,"~/.dir_colors"
--'  1  0  ~/.dir_colors
-|4,39,1,0,1629776396,"~/.dir_colors"
--'  1  0  ~/.dir_colors
-|4,39,1,0,1629776396,"~/.dir_colors"
--'  1  0  ~/.dir_colors
-|4,39,1,0,1629776396,"~/.dir_colors"
--'  1  0  ~/.dir_colors
-|4,39,1,0,1629776396,"~/.dir_colors"
--'  1  0  ~/.dir_colors
-|4,39,1,0,1629776396,"~/.dir_colors"
--'  1  0  ~/.dir_colors
-|4,39,1,0,1629776396,"~/.dir_colors"
--'  1  0  ~/.dir_colors
-|4,39,1,0,1629776396,"~/.dir_colors"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  75  4  ~/.zprezto/runcoms/zpreztorc
-|4,39,75,4,1629775644,"~/.zprezto/runcoms/zpreztorc"
--'  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,39,46,0,1629775639,"~/.zprezto/runcoms/zpreztorc"
--'  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,39,46,0,1629775639,"~/.zprezto/runcoms/zpreztorc"
--'  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,39,46,0,1629775639,"~/.zprezto/runcoms/zpreztorc"
--'  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,39,46,0,1629775639,"~/.zprezto/runcoms/zpreztorc"
--'  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,39,46,0,1629775639,"~/.zprezto/runcoms/zpreztorc"
--'  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,39,46,0,1629775639,"~/.zprezto/runcoms/zpreztorc"
--'  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,39,46,0,1629775639,"~/.zprezto/runcoms/zpreztorc"
--'  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,39,46,0,1629775639,"~/.zprezto/runcoms/zpreztorc"
--'  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,39,46,0,1629775639,"~/.zprezto/runcoms/zpreztorc"
--'  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,39,46,0,1629775639,"~/.zprezto/runcoms/zpreztorc"
--'  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,39,46,0,1629775639,"~/.zprezto/runcoms/zpreztorc"
--'  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,39,46,0,1629775639,"~/.zprezto/runcoms/zpreztorc"
--'  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,39,46,0,1629775639,"~/.zprezto/runcoms/zpreztorc"
--'  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,39,46,0,1629775639,"~/.zprezto/runcoms/zpreztorc"
--'  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,39,46,0,1629775639,"~/.zprezto/runcoms/zpreztorc"
--'  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,39,46,0,1629775639,"~/.zprezto/runcoms/zpreztorc"
--'  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,39,46,0,1629775639,"~/.zprezto/runcoms/zpreztorc"
--'  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,39,46,0,1629775639,"~/.zprezto/runcoms/zpreztorc"
--'  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,39,46,0,1629775639,"~/.zprezto/runcoms/zpreztorc"
--'  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,39,46,0,1629775639,"~/.zprezto/runcoms/zpreztorc"
--'  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,39,46,0,1629775639,"~/.zprezto/runcoms/zpreztorc"
--'  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,39,46,0,1629775639,"~/.zprezto/runcoms/zpreztorc"
--'  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,39,46,0,1629775639,"~/.zprezto/runcoms/zpreztorc"
--'  46  0  ~/.zprezto/runcoms/zpreztorc
-|4,39,46,0,1629775639,"~/.zprezto/runcoms/zpreztorc"
+-'  1  0  CMake/logdevice-deps.cmake
+|4,39,1,0,1630461031,"CMake/logdevice-deps.cmake"
+-'  31  10  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,31,10,1630458948,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  31  10  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,31,10,1630458948,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  35  0  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,35,0,1630458934,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  1  0  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,1,0,1630458934,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  35  0  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,35,0,1630458934,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  1  0  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,1,0,1630458934,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  35  0  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,35,0,1630458901,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  35  0  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,35,0,1630458901,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  22  78  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,22,78,1630458882,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  22  78  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,22,78,1630458882,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  1  0  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,1,0,1630458882,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  22  78  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,22,78,1630458882,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  22  78  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,22,78,1630458882,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  1  0  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,1,0,1630458882,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  24  78  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,24,78,1630458756,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  24  78  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,24,78,1630458756,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  24  78  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,24,78,1630458756,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  24  78  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,24,78,1630458756,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  22  124  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,22,124,1630458754,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  22  124  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,22,124,1630458754,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  43  19  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,43,19,1630458620,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  45  19  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,45,19,1630458620,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  43  19  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,43,19,1630458620,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  45  19  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,45,19,1630458620,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  43  19  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,43,19,1630458620,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  45  19  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,45,19,1630458620,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  43  19  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,43,19,1630458620,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  45  19  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,45,19,1630458620,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  1  0  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,1,0,1630458614,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  1  0  /LogDevice/logdevice/CMake/logdevice-deps.cmake
+|4,39,1,0,1630458614,"/LogDevice/logdevice/CMake/logdevice-deps.cmake"
+-'  1  0  CMake/logdevice-deps.cmake
+|4,39,1,0,1630458597,"CMake/logdevice-deps.cmake"
+-'  1  0  CMake/logdevice-deps.cmake
+|4,39,1,0,1630458597,"CMake/logdevice-deps.cmake"
+-'  1  0  CMake/logdevice-deps.cmake
+|4,39,1,0,1630458597,"CMake/logdevice-deps.cmake"
+-'  1  0  CMake/logdevice-deps.cmake
+|4,39,1,0,1630458597,"CMake/logdevice-deps.cmake"
+-'  1  0  CMake/logdevice-deps.cmake
+|4,39,1,0,1630458597,"CMake/logdevice-deps.cmake"
+-'  1  0  CMake/logdevice-deps.cmake
+|4,39,1,0,1630458597,"CMake/logdevice-deps.cmake"
+-'  1  0  CMake/logdevice-deps.cmake
+|4,39,1,0,1630458597,"CMake/logdevice-deps.cmake"
+-'  1  0  CMake/logdevice-deps.cmake
+|4,39,1,0,1630458597,"CMake/logdevice-deps.cmake"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  1  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,1,0,1630457917,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
+-'  223  0  /LogDevice/logdevice/CMakeLists.txt
+|4,39,223,0,1630457911,"/LogDevice/logdevice/CMakeLists.txt"
 
 # History of marks within files (newest to oldest):
+
+> CMake/logdevice-deps.cmake
+	*	1630461030	0
+	"	1	0
+
+> /LogDevice/logdevice/CMake/logdevice-deps.cmake
+	*	1630458947	0
+	"	31	10
+	^	31	11
+	.	31	10
+	+	22	0
+	+	22	125
+	+	22	0
+	+	32	0
+	+	31	10
+
+> /LogDevice/logdevice/CMakeLists.txt
+	*	1630457915	0
+	"	1	0
+
+> /clog/external/fbthrift/ThriftLibrary.cmake
+	*	1630126836	0
+	"	209	0
+	.	209	0
+	+	209	0
+
+> /clog/_build/staging/usr/local/include/thrift/ThriftLibrary.cmake
+	*	1630126284	0
+	"	209	0
+	^	209	0
+	.	210	0
+	+	209	0
+	+	148	0
+	+	209	0
+	+	210	0
+
+> /clog/logdevice/common/CMakeLists.txt
+	*	1630123955	0
+	"	8	0
+
+> /clog/src/admin/if/nodes.thrift
+	*	1630123930	0
+	"	11	12
+	^	11	13
+	.	11	12
+	+	9	9
+	+	11	9
+	+	9	12
+	+	11	12
+
+> /clog/NERD_tree_1
+	*	1630108605	0
+	"	19	0
+	.	1	0
+	+	1	0
+
+> /clog/src/admin/if/CMakeLists.txt
+	*	1630108576	0
+	"	54	2
+	^	82	28
+	.	82	27
+	+	10	35
+	+	11	48
+	+	49	21
+	+	51	29
+	+	52	29
+	+	53	29
+	+	73	25
+	+	74	5
+	+	76	41
+	+	77	27
+	+	79	27
+	+	80	27
+	+	82	27
+
+> /clog/src/common/configuration/if/AllReadStreamsDebugConfig.thrift
+	*	1630108289	0
+	"	3	0
+
+> /clog/src/common/configuration/nodes/NodesConfiguration.thrift
+	*	1630108277	0
+	"	6	9
+	^	10	12
+	.	10	9
+	+	9	11
+	+	10	11
+	+	9	9
+	+	10	9
+
+> /clog/src/common/configuration/nodes/NodesConfiguration.cpp
+	*	1630108214	0
+	"	8	9
+
+> /clog/src/common/configuration/if/CMakeLists.txt
+	*	1630108182	0
+	"	12	0
+	.	12	3
+	+	12	3
+
+> /clog/src/admin/if/logtree.thrift
+	*	1630108123	0
+	"	11	9
+	^	9	12
+	.	9	9
+	+	9	9
+
+> /clog/src/admin/CMakeLists.txt
+	*	1630107729	0
+	"	79	2
+	^	119	45
+	.	119	44
+	+	119	44
+
+> /clog/src/common/if/CMakeLists.txt
+	*	1630107667	0
+	"	48	0
+	^	10	30
+	.	10	29
+	+	10	29
+
+> /clog/src/common/if/ApiService.thrift
+	*	1630107605	0
+	"	2	0
+	.	10	0
+	+	10	0
+
+> ../src/common/if/gen-cpp2/ApiService_constants.h
+	*	1630107552	0
+	"	1	0
+
+> /clog/_build/src/common/if/gen-cpp2/ApiService_constants.h
+	*	1630107531	0
+	"	1	0
+
+> /clog/src/common/if/ApiModel.thrift
+	*	1630107457	0
+	"	12	0
+
+> /clog/src/common/if/payload.thrift
+	*	1630107369	0
+	"	1	0
+
+> /clog/src/common/if/common.thrift
+	*	1630107367	0
+	"	3	0
+
+> /clog/src/admin/if/settings.thrift
+	*	1630107332	0
+	"	72	0
+
+> /clog/src/admin/if/safety.thrift
+	*	1630107291	0
+	"	13	0
+	.	9	0
+	+	9	0
+
+> /clog/src/admin/if/maintenance.thrift
+	*	1630107280	0
+	"	11	0
+	.	9	0
+	+	9	0
+
+> /clog/src/admin/if/exceptions.thrift
+	*	1630107273	0
+	"	9	11
+	^	9	12
+	.	9	11
+	+	9	11
+
+> /clog/src/admin/if/cluster_membership.thrift
+	*	1630107201	0
+	"	10	0
+	.	9	0
+	+	9	0
+
+> /clog/src/admin/if/admin_commands.thrift
+	*	1630107195	0
+	"	1	0
+
+> /clog/src/admin/if/admin.thrift
+	*	1630107193	0
+	"	17	0
+	.	9	0
+	+	9	0
+
+> /clog/src/CMakeLists.txt
+	*	1630107036	0
+	"	27	2
+	^	118	2
+	.	118	1
+	+	2	0
+	+	3	0
+	+	6	0
+	+	2	0
+	+	13	27
+	+	13	0
+	+	14	0
+	+	75	33
+	+	77	33
+	+	82	33
+	+	83	33
+	+	84	33
+	+	85	33
+	+	99	56
+	+	75	0
+	+	116	0
+	+	118	1
+
+> /clog/CMake/build-rocksdb.cmake
+	*	1630105967	0
+	"	50	0
+	^	18	51
+	.	18	50
+	+	18	50
+
+> /clog/CMake/FindCython.cmake
+	*	1630102370	0
+	"	1	0
+
+> /clog/CMake/build-wangle.cmake
+	*	1630102366	0
+	"	7	38
+	.	7	38
+	+	7	38
+
+> /clog/CMake/build-folly.cmake
+	*	1630102349	0
+	"	7	21
+	.	7	37
+	+	7	37
+
+> /clog/CMake/build-fmt.cmake
+	*	1630102339	0
+	"	17	0
+
+> /clog/CMake/build-fizz.cmake
+	*	1630102334	0
+	"	1	0
+	.	7	36
+	+	7	36
+
+> /clog/CMake/build-fbthrift.cmake
+	*	1630102306	0
+	"	7	24
+	^	7	40
+	.	7	39
+	+	7	39
+
+> /clog/CMake/build-config.cmake
+	*	1630102282	0
+	"	16	0
+	^	16	50
+	.	16	49
+	+	16	49
+
+> /clog/CMakeLists.txt
+	*	1630102215	0
+	"	48	14
+	^	57	0
+	.	58	0
+	+	15	3
+	+	73	34
+	+	73	7
+	+	74	0
+	+	71	0
+	+	72	0
+	+	28	0
+	+	27	0
+	+	28	0
+	+	15	31
+	+	14	0
+	+	13	0
+	+	40	0
+	+	56	0
+	+	57	0
+	+	68	0
+	+	11	0
+	+	58	0
+
+> /clog/src/lib/CMakeLists.txt
+	*	1630101589	0
+	"	46	33
+	^	44	27
+	.	44	27
+	+	7	60
+	+	8	61
+	+	43	0
+	+	44	27
+
+> /clog/src/server/CMakeLists.txt
+	*	1630101302	0
+	"	90	6
+	^	89	27
+	.	89	26
+	+	7	0
+	+	89	26
+
+> /clog/src/common/CMakeLists.txt
+	*	1630101226	0
+	"	38	4
+	^	112	27
+	.	112	26
+	+	1	88
+	+	1	91
+	+	1	0
+	+	7	0
+	+	109	26
+	+	112	26
+
+> /clog/.gitignore
+	*	1630100729	0
+	"	33	4
+	^	33	5
+	.	33	4
+	+	32	16
+	+	33	4
+
+> /clog/CMake/logdevice-deps.cmake
+	*	1630099298	0
+	"	61	0
+
+> /clog/.gitmodules
+	*	1630098712	0
+	"	1	0
+
+> /clog/.flake8
+	*	1630098588	0
+	"	65	2
+
+> /clog/flake8_plugins
+	*	1630098574	0
+	"	1	0
+
+> /clog/Doxyfile
+	*	1630098549	0
+	"	35	26
+	^	1177	26
+	.	1177	25
+	+	793	37
+	+	794	27
+	+	795	27
+	+	796	27
+	+	797	27
+	+	798	27
+	+	799	27
+	+	800	27
+	+	1177	25
+
+> /clog/build_tools/ubuntu.deps
+	*	1630097711	0
+	"	27	10
+
+> ~/logdevice/logdevice.conf
+	*	1629867027	0
+	"	179	0
+
+> /LogDevice/logdevice/ops/ldshell/main_py.py
+	*	1629861528	0
+	"	1	0
+
+> /LogDevice/logdevice/external/rocksdb/options/options_parser.cc
+	*	1629816831	0
+	"	413	21
+	^	413	22
+	.	413	21
+	+	413	21
+
+> /LogDevice/logdevice/external/rocksdb/db/db_impl/db_impl_compaction_flush.cc
+	*	1629791182	0
+	"	1139	21
+	^	1139	22
+	.	1139	21
+	+	1039	21
+	+	1139	21
+
+> /LogDevice/logdevice/external/rocksdb/db/db_impl/db_impl_compaction_flush.cc:1039
+	*	1629791123	0
+	"	1	0
 
 > ~/.bashrc_local
 	*	1629776589	0

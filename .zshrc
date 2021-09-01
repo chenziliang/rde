@@ -100,21 +100,3 @@ export PATH=$PATH:~/.cargo/bin
 
 export CXX=clang++-12
 export CC=clang-12
-
-rde()
-{
-    if [ $# -eq 0 ]; then
-        docker run --cap-add=sys_nice --hostname "λ" -it rde;
-    elif [ $# -eq 1 ]; then
-        if [ -d "$1" ]; then
-            r=`basename "$1"`
-            docker run -v "$1":"/$r" -w "/$r" --cap-add=sys_nice --hostname "λ" -it rde;
-        fi
-    elif [ $# -eq 2 ]; then
-        if [ -d "$1" ]; then
-            docker run -v "$1":"$2" -w "$2" --cap-add=sys_nice --hostname "λ" -it rde;
-        fi
-    else
-        docker run --cap-add=sys_nice --hostname "λ" -it rde;
-    fi
-}

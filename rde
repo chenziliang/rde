@@ -1,0 +1,55 @@
+#!/bin/bash
+
+usage()
+{
+    echo "rde.sh -r <root> -v <working-dir1> -v <working_dir2> ..."
+    exit 1
+}
+
+IMAGE="rde"
+WORKING_DIRS=()
+
+while [[ $# -gt 0 ]]; do
+    key="$1"
+
+    case $key in
+        -r|--root)
+            ROOT="$2"
+            shift
+            shift
+            ;;
+        -v|--volume)
+            WORKING_DIRS+=("$2")
+            shift
+            shift
+            ;;
+        -i|--image)
+            IMAGE="$2"
+            shift
+            shift
+            ;;
+        *)
+            usage
+    esac
+done
+
+# Construct docker commnd
+docker_cli="docker run"
+
+if [[ ! -z  "$ROOT" && -d "$ROOT" ]]; then
+    echo "Mapping $ROOT to /root"
+    docker_cli="${docker_cli} -v ${ROOT}:/root"
+fi
+
+for w in "${WORKING_DIRS[@]}"
+do
+    if [[ -d "$w" ]]; then
+        base=`basename $w`
+        echo "Mapping $w to /$base"
+        docker_cli="${docker_cli} -v ${w}:/$base"
+    fi
+done
+
+docker_cli="${docker_cli} -w /root --cap-add=sys_nice --hostname λ -it ${IMAGE}"
+echo "Running ${docker_cli}"
+exec $docker_cli
