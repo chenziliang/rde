@@ -25,6 +25,7 @@ RUN apt-get update \
         expect \
         g++ \
         gcc \
+        gdb \
         ninja-build \
         perl \
         pkg-config \

@@ -1,0 +1,6 @@
+python
+import sys
+sys.path.insert(0, '/home/ghost/code/pretty-printer-libcxx-gdb/src')
+from libcxx.v1.printers import register_libcxx_printer_loader
+register_libcxx_printer_loader ()
+end
