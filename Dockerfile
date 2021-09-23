@@ -46,6 +46,12 @@ RUN apt-get update \
         vim \
         tmux \
         git \
+        ripgrep \
+        --yes --no-install-recommends
+
+RUN apt-get update \
+    && apt-get install \
+        software-properties-common \
         --yes --no-install-recommends
 
 # rust
