@@ -97,3 +97,41 @@ easygrep
   * : ReplaceUndo
   * Replace [target][replacement]
   * GrepOptions [arg]
+
+cpptree
+------
+# ClickHouse codebase
+
+$ `ExecNode`'s derived classes containing `Aggregat`
+cpptree.pl '(?i)ExecNode' '(?i)Aggregat' 1 4
+
+# any base class with derived class which contains `Aggregat` (case-insensitive)
+cpptree.pl '(?i)\w+' '(?i)Aggregat' 1 4
+
+# direct derived classes of `IProcessor`
+cpptree.pl 'IProcessor' '' 1 2
+
+# derived classes of `IProcessor`, which contain `Expr` or `Arith`
+cpptree.pl 'IProcessor' '(?i)Expr|Arith' 1 5
+
+# class hierachy of `IProcessor` and `Aggregat`
+cpptree.pl 'IProcessor' '(?i)Aggregat' 1 5
+
+calltree
+------
+# Arangodb codebase, which uses v8 to implement UDF
+
+# any class with `udf`
+calltree.pl '(?i)udf' '' 1 1 3
+
+# try `userdefinedfunction`
+calltree.pl '(?i)userdefinedfunction' '' 1 1 3
+
+# try `userfunction`
+calltree.pl '(?i)userfunction' '' 1 1 3
+
+calltree.pl '^(?i)registeruserfunction$' '' 0 1 1
+
+calltree.pl '(?i)(invoke|call|exec|run).*function' '' 0 1 1
+
+calltree.pl 'invokeV8Function' '' 1 1 4

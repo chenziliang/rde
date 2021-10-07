@@ -10,6 +10,7 @@ IMAGE="rde"
 WORKING_DIRS=()
 # Other arguments are passed over to docker container directly
 OTHERS=()
+HOSTNAME="timeplus"
 
 while [[ $# -gt 0 ]]; do
     key="$1"
@@ -27,6 +28,11 @@ while [[ $# -gt 0 ]]; do
             ;;
         -i|--image)
             IMAGE="$2"
+            shift
+            shift
+            ;;
+        -h|--hostname)
+            HOSTNAME="$2"
             shift
             shift
             ;;
@@ -58,7 +64,11 @@ do
     fi
 done
 
-docker_cli="${docker_cli} -w /root ${OTHERS[@]} --cap-add=sys_nice --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --hostname λ -it ${IMAGE}"
+# Setup ccache
+mkdir -p $HOME/.ccache
+CCACHE="--mount=type=bind,source=$HOME/.ccache,destination=/ccache -e CCACHE_DIR=/ccache"
+
+docker_cli="${docker_cli} -w /root ${OTHERS[@]} --network=host --cap-add=sys_nice --cap-add=SYS_PTRACE --security-opt seccomp=unconfined --hostname ${HOSTNAME} ${CCACHE} -it ${IMAGE}"
 echo "Running ${docker_cli}"
 
 exec $docker_cli

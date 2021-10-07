@@ -1,6 +1,6 @@
 FROM ubuntu:20.04
 
-ENV DEBIAN_FRONTEND=noninteractive LLVM_VERSION=12
+ENV DEBIAN_FRONTEND=noninteractive LLVM_VERSION=13
 
 # RUN sed -i 's|http://archive|http://ru.archive|g' /etc/apt/sources.list
 
@@ -26,6 +26,7 @@ RUN apt-get update \
         g++ \
         gcc \
         gdb \
+        make \
         ninja-build \
         perl \
         pkg-config \
@@ -47,6 +48,12 @@ RUN apt-get update \
         tmux \
         git \
         ripgrep \
+        jq \
+        silversearcher-ag \
+        psmisc \
+        telnet \
+        ssh \
+        openjdk-11-jdk \
         --yes --no-install-recommends
 
 RUN apt-get update \
@@ -58,6 +65,17 @@ RUN apt-get update \
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
 RUN curl https://raw.githubusercontent.com/aws/aws-cli/develop/bin/aws_zsh_completer.sh > /usr/local/bin/aws_zsh_completer.sh && chmod +x /usr/local/bin/aws_zsh_completer.sh
+
+# CPP advanced grep tool
+RUN curl https://raw.githubusercontent.com/satanson/cpp_etudes/master/calltree.pl > /usr/local/bin/calltree && chmod +x /usr/local/bin/calltree
+RUN curl https://raw.githubusercontent.com/satanson/cpp_etudes/master/cpptree.pl > /usr/local/bin/cpptree && chmod +x /usr/local/bin/cpptree
+RUN curl https://raw.githubusercontent.com/satanson/cpp_etudes/master/deptree.pl > /usr/local/bin/deptree && chmod +x /usr/local/bin/deptree
+
+# JAVA advanced grep tool
+RUN curl https://raw.githubusercontent.com/satanson/cpp_etudes/master/java_calltree.pl > /usr/local/bin/java_calltree && chmod +x /usr/local/bin/java_calltree
+RUN curl https://raw.githubusercontent.com/satanson/cpp_etudes/master/javatree.pl > /usr/local/bin/javatree && chmod +x /usr/local/bin/javatree
+
+RUN curl https://raw.githubusercontent.com/satanson/cpp_etudes/master/csvtable.pl > /usr/local/bin/csvtable && chmod +x /usr/local/bin/csvtable
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y locales \
