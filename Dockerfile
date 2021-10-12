@@ -18,7 +18,6 @@ RUN apt-get update \
 RUN apt-get update \
     && apt-get install \
         bash \
-        zsh \
         ccache \
         cmake \
         curl \
@@ -35,6 +34,7 @@ RUN apt-get update \
         python3-requests \
         python3-termcolor \
         tzdata \
+        zsh \
         llvm-${LLVM_VERSION} \
         clang-${LLVM_VERSION} \
         clang-tidy-${LLVM_VERSION} \
@@ -44,16 +44,20 @@ RUN apt-get update \
 
 RUN apt-get update \
     && apt-get install \
-        vim \
-        tmux \
+        apt-file \
         git \
-        ripgrep \
+        iproute2 \
+        inetutils-ping \
         jq \
-        silversearcher-ag \
-        psmisc \
-        telnet \
-        ssh \
         openjdk-11-jdk \
+        psmisc \
+        ripgrep \
+        silversearcher-ag \
+        ssh \
+        strace \
+        telnet \
+        tmux \
+        vim \
         --yes --no-install-recommends
 
 RUN apt-get update \

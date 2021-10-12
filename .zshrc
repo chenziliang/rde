@@ -98,5 +98,8 @@ alias wireshark='sudo /Applications/Wireshark.app/Contents/MacOS/Wireshark &'
 export PATH=$PATH:~/.cargo/bin
 # source $HOME/.cargo/env
 
-export CXX=clang++-12
-export CC=clang-12
+export CXX=clang++-13
+export CC=clang-13
+
+echo "127.0.0.1 timeplus" >> /etc/hosts
+
