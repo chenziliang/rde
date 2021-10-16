@@ -37,6 +37,7 @@ RUN apt-get update \
         zsh \
         llvm-${LLVM_VERSION} \
         clang-${LLVM_VERSION} \
+        clang-format-${LLVM_VERSION} \
         clang-tidy-${LLVM_VERSION} \
         lld-${LLVM_VERSION} \
         lldb-${LLVM_VERSION} \
@@ -48,6 +49,7 @@ RUN apt-get update \
         git \
         iproute2 \
         inetutils-ping \
+        less \
         jq \
         openjdk-11-jdk \
         psmisc \

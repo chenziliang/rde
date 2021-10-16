@@ -101,5 +101,7 @@ export PATH=$PATH:~/.cargo/bin
 export CXX=clang++-13
 export CC=clang-13
 
-echo "127.0.0.1 timeplus" >> /etc/hosts
-
+grep timeplus /etc/hosts > /dev/null
+if [[ $? -ne 0 ]]; then
+    echo "127.0.0.1 timeplus" >> /etc/hosts
+fi
