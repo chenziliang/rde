@@ -14,15 +14,21 @@ for rcfile in "${ZDOTDIR:-$HOME}"/.zprezto/runcoms/^README.md(.N); do
     fi
 done
 
+# Symlink dot files
+for rcfile in alias tmux tmux.conf vimrc zshrc dir_colors bashrc_local; do
+    if [[ ! -s "$HOME/.${rcfile:t}" ]]; then
+        ln -s "$HOME/code/rde/.$rcfile" ~
+    fi
+done
+
 # Source Prezto.
 if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
   source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
 fi
 
 # export spx="${spx:--mac}"
-if [ -e ~/.bashrc_local ]; then
-  source ~/.bashrc_local
-fi
+source ~/.alias
+source ~/.bashrc_local
 
 if [[ `uname` =~ "Darwin" ]]; then
     if brew list --formula | grep coreutils > /dev/null ; then
@@ -103,5 +109,5 @@ export CC=clang-13
 
 grep timeplus /etc/hosts > /dev/null
 if [[ $? -ne 0 ]]; then
-    echo "127.0.0.1 timeplus" >> /etc/hosts
+    sudo sh -c 'echo "127.0.0.1 timeplus" >> /etc/hosts'
 fi
