@@ -20,4 +20,9 @@ sed -i"" "/^  'completion'/a \  'git' \\\\\n  'syntax-highlighting' \\\\" ~/.zpr
 sed -i"" "s/key-bindings 'emacs'/key-bindings 'vi'/g" ~/.zprezto/runcoms/zpreztorc
 
 sudo mkdir -p /usr/local/bin/
+sudo cp rde /usr/local/bin
 sudo sh -c 'curl https://raw.githubusercontent.com/aws/aws-cli/develop/bin/aws_zsh_completer.sh > /usr/local/bin/aws_zsh_completer.sh' && sudo chmod +x /usr/local/bin/aws_zsh_completer.sh
+
+# VNC AWS EC2 Ubuntu https://ubuntu.com/tutorials/ubuntu-desktop-aws#1-overview
+# vncserver -kill :1
+# vncserver -geometry 2560x1440 :1
