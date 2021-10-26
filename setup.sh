@@ -10,7 +10,7 @@ ln -s ~/code/rde/.dir_colors
 
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
-vim +'PlugInstall --sync' +qa
+vim +PluginInstall +qa
 
 sed -i"" "s/<leader>q/<leader>h/g"  ~/.vim/bundle/ListToggle/plugin/listtoggle.vim
 

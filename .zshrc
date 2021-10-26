@@ -111,3 +111,6 @@ grep timeplus /etc/hosts > /dev/null
 if [[ $? -ne 0 ]]; then
     sudo sh -c 'echo "127.0.0.1 timeplus" >> /etc/hosts'
 fi
+
+export PATH=$PATH:~/bin/clion/bin
+alias clion='clion.sh &'
