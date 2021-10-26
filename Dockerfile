@@ -57,6 +57,7 @@ RUN apt-get update \
         silversearcher-ag \
         ssh \
         strace \
+        sudo \
         telnet \
         tmux \
         vim \
