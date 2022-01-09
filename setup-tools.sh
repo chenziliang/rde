@@ -87,3 +87,9 @@ apt-get update \
     && dpkg-reconfigure --frontend=noninteractive locales \
     && update-locale LANG=en_US.UTF-8
 
+
+sudo apt update \
+	apt install ubuntu-desktop -y --no-install-recommends \
+	apt install tightvncserver -y --no-install-recommends \
+	apt install gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal -y --no-install-recommends
+
