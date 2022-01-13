@@ -1,5 +1,7 @@
 FROM ubuntu:20.04
 
+RUN yes | unminimize
+
 ENV DEBIAN_FRONTEND=noninteractive LLVM_VERSION=13
 
 # RUN sed -i 's|http://archive|http://ru.archive|g' /etc/apt/sources.list
@@ -17,7 +19,6 @@ RUN apt-get update \
 
 RUN apt-get update \
     && apt-get install \
-        bash \
         ccache \
         cmake \
         curl \
@@ -34,7 +35,6 @@ RUN apt-get update \
         python3-requests \
         python3-termcolor \
         tzdata \
-        zsh \
         llvm-${LLVM_VERSION} \
         clang-${LLVM_VERSION} \
         clang-format-${LLVM_VERSION} \
@@ -46,6 +46,9 @@ RUN apt-get update \
 RUN apt-get update \
     && apt-get install \
         apt-file \
+        bash \
+        bat \
+        curl \
         git \
         iproute2 \
         inetutils-ping \
@@ -61,12 +64,32 @@ RUN apt-get update \
         telnet \
         tmux \
         vim \
+        zsh \
         --yes --no-install-recommends
 
 RUN apt-get update \
     && apt-get install \
         software-properties-common \
+        man \
+        manpages \
+        manpages-dev \
+        manpages-posix-dev \
         --yes --no-install-recommends
+
+RUN apt-get update \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y locales \
+    && sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
+    && dpkg-reconfigure --frontend=noninteractive locales \
+    && update-locale LANG=en_US.UTF-8
+
+RUN apt-get update \
+    && apt-get install \
+    apt-utils \
+    --yes --no-install-recommends
+
+ENV LANG en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+ENV SHELL /usr/bin/zsh
 
 # rust
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
@@ -84,16 +107,5 @@ RUN curl https://raw.githubusercontent.com/satanson/cpp_etudes/master/javatree.p
 
 RUN curl https://raw.githubusercontent.com/satanson/cpp_etudes/master/csvtable.pl > /usr/local/bin/csvtable && chmod +x /usr/local/bin/csvtable
 
-RUN apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y locales \
-    && sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
-    && dpkg-reconfigure --frontend=noninteractive locales \
-    && update-locale LANG=en_US.UTF-8
-
-RUN apt-get update
-
-ENV LANG en_US.UTF-8
-ENV LC_ALL en_US.UTF-8
-ENV SHELL /usr/bin/zsh
 
 CMD ["/bin/zsh"]

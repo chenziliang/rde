@@ -2,7 +2,7 @@
 
 usage()
 {
-    echo "rde -r <root> -v <working-dir1> -v <working_dir2> <other docker args> ..."
+    echo "rde -r <root> -v <working-dir1>[:<mapping-dir1>] -v <working_dir2>:[<mapping-dir2>] <other docker args> ..."
     exit 1
 }
 
@@ -57,10 +57,19 @@ fi
 
 for w in "${WORKING_DIRS[@]}"
 do
+    IFS=':' read -ra WORKING_DIR_MAP <<< "$w"
+    w="${WORKING_DIR_MAP[0]}"
     if [[ -d "$w" ]]; then
-        base=`basename $w`
-        echo "Mapping $w to /$base"
-        docker_cli="${docker_cli} -v ${w}:/$base"
+        len="${#WORKING_DIR_MAP[@]}"
+        if [[ $len -eq 2 ]]; then
+            target_dir="${WORKING_DIR_MAP[1]}"
+        else
+            target_dir=`basename $w`
+            target_dir="/${target_dir}"
+        fi
+
+        echo "Mapping $w to $target_dir"
+        docker_cli="${docker_cli} -v ${w}:$target_dir"
     fi
 done
 
