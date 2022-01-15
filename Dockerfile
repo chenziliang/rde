@@ -63,6 +63,7 @@ RUN apt-get update \
         sudo \
         telnet \
         tmux \
+        tree \
         vim \
         zsh \
         --yes --no-install-recommends
