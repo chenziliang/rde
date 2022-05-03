@@ -27,5 +27,18 @@ wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 
 # VNC AWS EC2 Ubuntu https://ubuntu.com/tutorials/ubuntu-desktop-aws#1-overview
+# check /home/kc/.vnc/ip-172-31-52-11:1.log
+# may need install dbus for 22.04
+# sudo apt install dbus-x11
 # vncserver -kill :1
 # vncserver -geometry 2560x1440 :1
+
+# Reference: https://stackoverflow.com/questions/42296329/how-to-properly-configure-xstartup-file-for-tightvnc-with-ubuntu-vps-gnome-envir
+# sudo apt-get install ubuntu-gnome-desktop
+# sudo apt-get install tightvncserver xtightvncviewer tightvnc-java
+# sudo locale-gen de_DE.UTF-8
+# sudo apt-get install xfonts-75dpi
+# sudo apt-get install xfonts-100dpi
+# sudo apt-get install gnome-panel
+# sudo apt-get install metacity
+# sudo apt-get install light-themes
