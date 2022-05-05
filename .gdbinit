@@ -6,5 +6,8 @@ register_libcxx_printer_loader ()
 end
 
 set history save on
+set print pretty on
+# set pagination off
+set confirm off
 handle SIGUSR1 noprint nostop
 handle SIGUSR2 noprint nostop
