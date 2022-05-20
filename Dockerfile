@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 
 RUN yes | unminimize
 
-ENV DEBIAN_FRONTEND=noninteractive LLVM_VERSION=13
+ENV DEBIAN_FRONTEND=noninteractive LLVM_VERSION=13 GCC_VERSION=12 GO_VERSION=1.18
 
 # RUN sed -i 's|http://archive|http://ru.archive|g' /etc/apt/sources.list
 
@@ -26,6 +26,9 @@ RUN apt-get update \
         g++ \
         gcc \
         gdb \
+        g++-${GCC_VERSION} \
+        gcc-${GCC_VERSION} \
+        golang-${GO_VERSION} \
         make \
         ninja-build \
         perl \
