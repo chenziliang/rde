@@ -104,13 +104,18 @@ alias wireshark='sudo /Applications/Wireshark.app/Contents/MacOS/Wireshark &'
 export PATH=$PATH:~/.cargo/bin
 # source $HOME/.cargo/env
 
-export CXX=clang++-13
-export CC=clang-13
+export CXX=clang++-15
+export CC=clang-15
 
 grep timeplus /etc/hosts > /dev/null
 if [[ $? -ne 0 ]]; then
     sudo sh -c 'echo "127.0.0.1 timeplus" >> /etc/hosts'
 fi
 
-export PATH=$PATH:~/bin/clion/bin
+export PATH=$PATH:~/bin/clion/bin:~/bin/idea/bin
+
 alias clion='clion.sh &'
+alias idea='idea.sh &'
+alias laptop='vncserver -geometry 2000x1200 :1'
+alias bigscreen='vncserver -geometry 2680x1440 :1'
+alias du1='du -h --exclude=./code --max-depth=1'

@@ -2,12 +2,24 @@ FROM ubuntu:22.04
 
 RUN yes | unminimize
 
-ENV DEBIAN_FRONTEND=noninteractive LLVM_VERSION=13 GCC_VERSION=12 GO_VERSION=1.18
+# ARG for quick switch to a given ubuntu mirror
+ARG apt_archive="http://archive.ubuntu.com"
+RUN sed -i "s|http://archive.ubuntu.com|$apt_archive|g" /etc/apt/sources.list
+
+ENV DEBIAN_FRONTEND=noninteractive LLVM_VERSION=15 GCC_VERSION=12 GO_VERSION=1.18
+
 
 # RUN sed -i 's|http://archive|http://ru.archive|g' /etc/apt/sources.list
 
 RUN apt-get update \
-    && apt-get install ca-certificates lsb-release wget gnupg apt-transport-https \
+    && apt-get install \
+        apt-transport-https \
+        ca-certificates \
+        dnsutils \
+        gnupg \
+        iputils-ping \
+        lsb-release \
+        wget \
         --yes --no-install-recommends --verbose-versions \
     && export LLVM_PUBKEY_HASH="bda960a8da687a275a2078d43c111d66b1c6a893a3275271beedf266c1ff4a0cdecb429c7a5cccf9f486ea7aa43fd27f" \
     && wget -nv -O /tmp/llvm-snapshot.gpg.key https://apt.llvm.org/llvm-snapshot.gpg.key \
@@ -15,7 +27,8 @@ RUN apt-get update \
     && apt-key add /tmp/llvm-snapshot.gpg.key \
     && export CODENAME="$(lsb_release --codename --short | tr 'A-Z' 'a-z')" \
     && echo "deb [trusted=yes] http://apt.llvm.org/${CODENAME}/ llvm-toolchain-${CODENAME}-${LLVM_VERSION} main" >> \
-        /etc/apt/sources.list
+        /etc/apt/sources.list \
+    && apt-get clean
 
 RUN apt-get update \
     && apt-get install \
@@ -38,13 +51,15 @@ RUN apt-get update \
         python3-requests \
         python3-termcolor \
         tzdata \
+        python3-lldb-${LLVM_VERSION} \
         llvm-${LLVM_VERSION} \
         clang-${LLVM_VERSION} \
         clang-format-${LLVM_VERSION} \
         clang-tidy-${LLVM_VERSION} \
         lld-${LLVM_VERSION} \
         lldb-${LLVM_VERSION} \
-        --yes --no-install-recommends
+        --yes --no-install-recommends \
+    && apt-get clean
 
 RUN apt-get update \
     && apt-get install \
@@ -69,7 +84,8 @@ RUN apt-get update \
         tree \
         vim \
         zsh \
-        --yes --no-install-recommends
+        --yes --no-install-recommends \
+    && apt-get clean
 
 RUN apt-get update \
     && apt-get install \
@@ -78,22 +94,28 @@ RUN apt-get update \
         manpages \
         manpages-dev \
         manpages-posix-dev \
-        --yes --no-install-recommends
+        --yes --no-install-recommends \
+    && apt-get clean
 
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y locales \
     && sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
     && dpkg-reconfigure --frontend=noninteractive locales \
-    && update-locale LANG=en_US.UTF-8
+    && update-locale LANG=en_US.UTF-8 \
+    && apt-get clean
 
 RUN apt-get update \
     && apt-get install \
-    apt-utils \
-    --yes --no-install-recommends
+        apt-utils \
+        --yes --no-install-recommends \
+    && apt-get clean
 
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 ENV SHELL /usr/bin/zsh
+
+# Fix - No module named 'lldb.embedded_interpreter'
+RUN ln -s /usr/lib/llvm-${LLVM_VERSION}/lib/python3.10/dist-packages/lldb/* /usr/lib/python3/dist-packages/lldb/
 
 # rust
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
