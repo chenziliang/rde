@@ -1,0 +1,84 @@
+FROM archlinux:base-devel
+
+# Search package
+# pacman -sS package-name
+
+RUN pacman -Syu --noconfirm \
+    && pacman -S \
+        man-db \
+        ca-certificates \
+        dnsutils \
+        gnupg \
+        iputils \
+        lsb-release \
+        wget \
+        ccache \
+        cmake \
+        expect \
+        gdb \
+        go \
+        ninja \
+        perl \
+        pkg-config \
+        python3 \
+        python-pip \
+        tzdata \
+        llvm \
+        clang \
+        lld \
+        lldb \
+        --noconfirm
+
+# python3-lldb-${LLVM_VERSION} \
+
+RUN pacman -Syu --noconfirm \
+    && pacman -S \
+        bash \
+        bat \
+        curl \
+        git \
+        iproute2 \
+        inetutils \
+        less \
+        jq \
+        jdk11-openjdk \
+        psmisc \
+        ripgrep \
+        the_silver_searcher \
+        openssh \
+        strace \
+        sudo \
+        tmux \
+        tree \
+        vim \
+        zsh \
+        --noconfirm
+
+RUN sed -i -e 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && echo LANG=en_US.UTF-8 > /etc/locale.conf
+
+ENV LANG en_US.UTF-8
+ENV LC_ALL en_US.UTF-8
+ENV SHELL /usr/bin/zsh
+
+# Fix - No module named 'lldb.embedded_interpreter'
+# RUN ln -s /usr/lib/llvm-${LLVM_VERSION}/lib/python3.10/dist-packages/lldb/* /usr/lib/python3/dist-packages/lldb/
+
+# rust
+RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+
+RUN curl https://raw.githubusercontent.com/aws/aws-cli/develop/bin/aws_zsh_completer.sh > /usr/local/bin/aws_zsh_completer.sh && chmod +x /usr/local/bin/aws_zsh_completer.sh
+
+# CPP advanced grep tool
+RUN curl https://raw.githubusercontent.com/satanson/cpp_etudes/master/calltree.pl > /usr/local/bin/calltree && chmod +x /usr/local/bin/calltree
+RUN curl https://raw.githubusercontent.com/satanson/cpp_etudes/master/cpptree.pl > /usr/local/bin/cpptree && chmod +x /usr/local/bin/cpptree
+RUN curl https://raw.githubusercontent.com/satanson/cpp_etudes/master/deptree.pl > /usr/local/bin/deptree && chmod +x /usr/local/bin/deptree
+
+# JAVA advanced grep tool
+RUN curl https://raw.githubusercontent.com/satanson/cpp_etudes/master/java_calltree.pl > /usr/local/bin/java_calltree && chmod +x /usr/local/bin/java_calltree
+RUN curl https://raw.githubusercontent.com/satanson/cpp_etudes/master/javatree.pl > /usr/local/bin/javatree && chmod +x /usr/local/bin/javatree
+
+RUN curl https://raw.githubusercontent.com/satanson/cpp_etudes/master/csvtable.pl > /usr/local/bin/csvtable && chmod +x /usr/local/bin/csvtable
+
+RUN pip install lxml requests termcolor
+
+CMD ["/bin/zsh"]

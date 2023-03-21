@@ -10,7 +10,7 @@
 !.zshrc
 !.gitignore
 
-!Dockerfile
+!Dockerfile.*
 !cheatsheet
 !setup.sh
 !rde

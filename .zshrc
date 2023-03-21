@@ -119,3 +119,7 @@ alias idea='idea.sh &'
 alias laptop='vncserver -geometry 2000x1200 :1'
 alias bigscreen='vncserver -geometry 2680x1440 :1'
 alias du1='du -h --exclude=./code --max-depth=1'
+
+# Fix for alpine linux
+unalias ls
+unalias ln
