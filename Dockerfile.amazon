@@ -1,63 +1,81 @@
-FROM archlinux:base-devel
+FROM amazonlinux:latest
 
-# Search package
-# pacman -sS package-name
-
-RUN pacman -Syu --noconfirm \
-    && pacman -S \
+RUN yum update \
+    && yum install \
         man-db \
-        ca-certificates \
-        dnsutils \
-        gnupg \
-        iputils \
-        lsb-release \
-        wget \
-        ccache \
-        cmake \
-        expect \
-        gdb \
-        go \
-        ninja \
-        perl \
-        pkg-config \
-        python3 \
-        python-pip \
+        man-pages \
         tzdata \
-        llvm \
-        clang \
-        lld \
-        lldb \
-        --noconfirm
-
-# python3-lldb-${LLVM_VERSION} \
-
-RUN pacman -Syu --noconfirm \
-    && pacman -S \
-        bash \
-        bat \
-        curl \
-        git \
-        iproute2 \
-        inetutils \
-        less \
-        jq \
-        jdk11-openjdk \
+        dnsutils \
+        iputils \
+        ncurses \
+        ncurses-devel \
+        tar \
+        xz \
+#        bat \
+        iproute \
+        iotop \
+        procps-ng \
         psmisc \
-        ripgrep \
-        the_silver_searcher \
-        openssh \
-        strace \
         sudo \
+        wget \
+        expect \
+        telnet \
+        jq \
+        zsh \
+        openssh-clients \
         tmux \
         tree \
         vim \
-        zsh \
-        --noconfirm
+        strace \
+        cmake \
+        git \
+        g++ \
+        gcc \
+        gdb \
+        golang \
+        cargo \
+        java-11-amazon-corretto.x86_64 \
+        ninja-build \
+        perl \
+        pkg-config \
+        python3 \
+        python3-lxml \
+        python3-requests \
+        python3-termcolor \
+        python3-lldb \
+        llvm \
+        clang \
+        clang-tools-extra \
+        lld \
+        lldb \
+        liburing-devel \
+# en_US.UTF-8 locale, yum search locales
+        glibc-langpack-en \
+        -y
 
-RUN sed -i -e 's/#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && echo LANG=en_US.UTF-8 > /etc/locale.conf && locale-gen
+# silversearcher-ag
+
+# Install ccache manually
+RUN wget https://github.com/ccache/ccache/releases/download/v4.8/ccache-4.8-linux-x86_64.tar.xz  \
+        && tar xf ccache-4.8-linux-x86_64.tar.xz \
+        && cd ccache-4.8-linux-x86_64 \
+        && make install \
+        && cd .. \
+        && rm -rf ccache-4.8-linux-x86_64
+
+# Install riggrep
+RUN wget https://github.com/BurntSushi/ripgrep/releases/download/13.0.0/ripgrep-13.0.0-x86_64-unknown-linux-musl.tar.gz \
+        && tar xzf ripgrep-13.0.0-x86_64-unknown-linux-musl.tar.gz \
+        && cp ripgrep-13.0.0-x86_64-unknown-linux-musl/rg /usr/bin/
+
+# Install bat
+# RUN cargo install --locked bat && strip /root/.cargo/bin/bat
+
+RUN echo 'LANG="en_US.UTF-8"' >> /etc/environment && echo 'LC_ALL="en_US.UTF-8"' >> /etc/environment && echo 'LC_CTYPE="en_US.UTF-8"' >> /etc/environment
 
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
+ENV LC_CTYPE en_US.UTF-8
 ENV SHELL /usr/bin/zsh
 
 # Fix - No module named 'lldb.embedded_interpreter'
@@ -79,6 +97,5 @@ RUN curl https://raw.githubusercontent.com/satanson/cpp_etudes/master/javatree.p
 
 RUN curl https://raw.githubusercontent.com/satanson/cpp_etudes/master/csvtable.pl > /usr/local/bin/csvtable && chmod +x /usr/local/bin/csvtable
 
-RUN pip install lxml requests termcolor
 
 CMD ["/bin/zsh"]

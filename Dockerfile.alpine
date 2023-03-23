@@ -21,8 +21,8 @@ RUN apk update \
         go \
         make \
         util-linux \
-#        ninja-build \
-        samurai \
+        ninja \
+#       samurai \
         perl \
         pkgconfig \
         python3 \
