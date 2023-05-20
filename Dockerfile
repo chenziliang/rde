@@ -6,15 +6,14 @@ RUN yes | unminimize
 ARG apt_archive="http://archive.ubuntu.com"
 RUN sed -i "s|http://archive.ubuntu.com|$apt_archive|g" /etc/apt/sources.list
 
-ENV DEBIAN_FRONTEND=noninteractive LLVM_VERSION=15 GCC_VERSION=12 GO_VERSION=1.18
-
-
-# RUN sed -i 's|http://archive|http://ru.archive|g' /etc/apt/sources.list
+ENV DEBIAN_FRONTEND=noninteractive LLVM_VERSION=16 GCC_VERSION=12 GO_VERSION=1.18
 
 RUN apt-get update \
     && apt-get install \
         apt-transport-https \
+        apt-utils \
         ca-certificates \
+        curl \
         dnsutils \
         gnupg \
         iputils-ping \
@@ -26,16 +25,51 @@ RUN apt-get update \
     && echo "${LLVM_PUBKEY_HASH} /tmp/llvm-snapshot.gpg.key" | sha384sum -c \
     && apt-key add /tmp/llvm-snapshot.gpg.key \
     && export CODENAME="$(lsb_release --codename --short | tr 'A-Z' 'a-z')" \
-    && echo "deb [trusted=yes] http://apt.llvm.org/${CODENAME}/ llvm-toolchain-${CODENAME}-${LLVM_VERSION} main" >> \
+    && echo "deb https://apt.llvm.org/${CODENAME}/ llvm-toolchain-${CODENAME}-${LLVM_VERSION} main" >> \
         /etc/apt/sources.list \
     && apt-get clean
 
 RUN apt-get update \
     && apt-get install \
-        ccache \
-        cmake \
+        apt-file \
+        bash \
+        bat \
         curl \
         expect \
+        git \
+        gperf \
+        iproute2 \
+        inetutils-ping \
+        jq \
+        less \
+        moreutils \
+        nasm \
+        ninja-build \
+        openjdk-11-jdk \
+        pigz \
+        psmisc \
+        ripgrep \
+        rename \
+        silversearcher-ag \
+        software-properties-common \
+        ssh \
+        strace \
+        sudo \
+        telnet \
+        tmux \
+        tree \
+        vim \
+        zsh \
+        --yes --no-install-recommends \
+    && apt-get clean
+
+RUN apt-get update \
+    && apt-get install \
+        bsdmainutils \
+        build-essential \
+        ccache \
+        cmake \
+        fakeroot \
         g++ \
         gcc \
         gdb \
@@ -50,40 +84,17 @@ RUN apt-get update \
         python3-lxml \
         python3-requests \
         python3-termcolor \
-        tzdata \
         python3-lldb-${LLVM_VERSION} \
-        llvm-${LLVM_VERSION} \
-        clang-${LLVM_VERSION} \
-        clang-format-${LLVM_VERSION} \
-        clang-tidy-${LLVM_VERSION} \
+        libclang-rt-${LLVM_VERSION}-dev \
         lld-${LLVM_VERSION} \
         lldb-${LLVM_VERSION} \
-        --yes --no-install-recommends \
-    && apt-get clean
-
-RUN apt-get update \
-    && apt-get install \
-        apt-file \
-        bash \
-        bat \
-        curl \
-        git \
-        iproute2 \
-        inetutils-ping \
-        less \
-        jq \
-        openjdk-11-jdk \
-        psmisc \
-        ripgrep \
-        silversearcher-ag \
-        ssh \
-        strace \
-        sudo \
-        telnet \
-        tmux \
-        tree \
-        vim \
-        zsh \
+        llvm-${LLVM_VERSION} \
+        llvm-${LLVM_VERSION}-dev \
+        libclang-${LLVM_VERSION}-dev \
+        clang-${LLVM_VERSION} \
+        clang-tidy-${LLVM_VERSION} \
+        clang-format-${LLVM_VERSION} \
+        tzdata \
         --yes --no-install-recommends \
     && apt-get clean
 
@@ -104,18 +115,21 @@ RUN apt-get update \
     && update-locale LANG=en_US.UTF-8 \
     && apt-get clean
 
-RUN apt-get update \
-    && apt-get install \
-        apt-utils \
-        --yes --no-install-recommends \
-    && apt-get clean
-
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 ENV SHELL /usr/bin/zsh
 
 # Fix - No module named 'lldb.embedded_interpreter'
 RUN ln -s /usr/lib/llvm-${LLVM_VERSION}/lib/python3.10/dist-packages/lldb/* /usr/lib/python3/dist-packages/lldb/
+
+# This symlink required by gcc to find lld compiler
+RUN ln -s /usr/bin/lld-${LLVM_VERSION} /usr/bin/ld.lld
+# for external_symbolizer_path
+RUN ln -s /usr/bin/llvm-symbolizer-${LLVM_VERSION} /usr/bin/llvm-symbolizer
+# FIXME: workaround for "The imported target "merge-fdata" references the file" error
+# https://salsa.debian.org/pkg-llvm-team/llvm-toolchain/-/commit/992e52c0b156a5ba9c6a8a54f8c4857ddd3d371d
+RUN sed -i '/_IMPORT_CHECK_FILES_FOR_\(mlir-\|llvm-bolt\|merge-fdata\|MLIR\)/ {s|^|#|}' /usr/lib/llvm-${LLVM_VERSION}/lib/cmake/llvm/LLVMExports-*.cmake
+
 
 # rust
 RUN curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
