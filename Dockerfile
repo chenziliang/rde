@@ -6,7 +6,7 @@ RUN yes | unminimize
 ARG apt_archive="http://archive.ubuntu.com"
 RUN sed -i "s|http://archive.ubuntu.com|$apt_archive|g" /etc/apt/sources.list
 
-ENV DEBIAN_FRONTEND=noninteractive LLVM_VERSION=16 GCC_VERSION=12 GO_VERSION=1.18
+ENV DEBIAN_FRONTEND=noninteractive LLVM_VERSION=15 GCC_VERSION=12 GO_VERSION=1.18
 
 RUN apt-get update \
     && apt-get install \
@@ -59,6 +59,7 @@ RUN apt-get update \
         tmux \
         tree \
         vim \
+        yasm \
         zsh \
         --yes --no-install-recommends \
     && apt-get clean
@@ -85,7 +86,7 @@ RUN apt-get update \
         python3-requests \
         python3-termcolor \
         python3-lldb-${LLVM_VERSION} \
-        libclang-rt-${LLVM_VERSION}-dev \
+        # libclang-rt-${LLVM_VERSION}-dev \
         lld-${LLVM_VERSION} \
         lldb-${LLVM_VERSION} \
         llvm-${LLVM_VERSION} \

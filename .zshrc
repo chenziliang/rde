@@ -104,8 +104,8 @@ alias wireshark='sudo /Applications/Wireshark.app/Contents/MacOS/Wireshark &'
 export PATH=$PATH:~/.cargo/bin
 # source $HOME/.cargo/env
 
-export CXX=clang++-15
-export CC=clang-15
+export CXX=clang++-16
+export CC=clang-16
 
 grep timeplus /etc/hosts > /dev/null
 if [[ $? -ne 0 ]]; then
