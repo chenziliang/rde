@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 FROM ubuntu:22.04
+=======
+FROM ubuntu:21.10
+>>>>>>> 05bb903 (clang-format)
 
 RUN yes | unminimize
 
@@ -98,6 +102,39 @@ RUN apt-get update \
         tzdata \
         --yes --no-install-recommends \
     && apt-get clean
+
+# install libc++
+RUN apt-get update \
+    && apt-get install \
+        libc++abi-13-dev \
+        libc++-13-dev \
+        --yes --no-install-recommends
+
+RUN apt-get update \
+    && apt-get install \
+        apt-file \
+        bash \
+        bat \
+        curl \
+        git \
+        iproute2 \
+        inetutils-ping \
+        less \
+        jq \
+        openjdk-11-jdk \
+        psmisc \
+        ripgrep \
+        silversearcher-ag \
+        ssh \
+        strace \
+        sudo \
+        telnet \
+        tmux \
+        tree \
+        vim \
+        zsh \
+        --yes --no-install-recommends
+>>>>>>> 05bb903 (clang-format)
 
 RUN apt-get update \
     && apt-get install \

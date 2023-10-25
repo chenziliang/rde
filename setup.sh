@@ -23,6 +23,9 @@ sudo mkdir -p /usr/local/bin/
 sudo cp rde /usr/local/bin
 sudo sh -c 'curl https://raw.githubusercontent.com/aws/aws-cli/develop/bin/aws_zsh_completer.sh > /usr/local/bin/aws_zsh_completer.sh' && sudo chmod +x /usr/local/bin/aws_zsh_completer.sh
 
+sudo sh -c 'curl https://raw.githubusercontent.com/llvm-mirror/clang/master/tools/clang-format/clang-format.py > /usr/local/bin/clang-format.py'
+
+
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 sudo dpkg -i google-chrome-stable_current_amd64.deb
 

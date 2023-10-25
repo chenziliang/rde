@@ -39,8 +39,8 @@ if [[ `uname` =~ "Darwin" ]]; then
 fi
 
 
-export PATH=/usr/local/go/bin:$PATH
-export GOHOME=$HOME/gocode
+export PATH=/usr/local/go/bin:$HOME/go/bin:$PATH
+export GOHOME=$HOME/go
 
 
 #function zle-line-init zle-keymap-select {
@@ -123,3 +123,10 @@ alias du1='du -h --exclude=./code --max-depth=1'
 # Fix for alpine linux
 unalias ls
 unalias ln
+
+export PATH="/usr/local/opt/llvm@15/bin:$PATH"
+export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
+export PKG_CONFIG_PATH=/usr/local/opt/openssl@1.1/lib/pkgconfig/
+
+export CXX=clang++
+export CC=clang
