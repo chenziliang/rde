@@ -6,7 +6,7 @@ RUN yes | unminimize
 ARG apt_archive="http://archive.ubuntu.com"
 RUN sed -i "s|http://archive.ubuntu.com|$apt_archive|g" /etc/apt/sources.list
 
-ENV DEBIAN_FRONTEND=noninteractive LLVM_VERSION=15 GCC_VERSION=12 GO_VERSION=1.18
+ENV DEBIAN_FRONTEND=noninteractive LLVM_VERSION=16 GCC_VERSION=12 GO_VERSION=1.20
 
 RUN apt-get update \
     && apt-get install \
@@ -130,7 +130,6 @@ RUN apt-get update \
         vim \
         zsh \
         --yes --no-install-recommends
->>>>>>> 05bb903 (clang-format)
 
 RUN apt-get update \
     && apt-get install \
