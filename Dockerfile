@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 FROM ubuntu:22.04
-=======
-FROM ubuntu:21.10
->>>>>>> 05bb903 (clang-format)
 
 RUN yes | unminimize
 
