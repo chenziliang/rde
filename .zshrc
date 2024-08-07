@@ -104,8 +104,8 @@ alias wireshark='sudo /Applications/Wireshark.app/Contents/MacOS/Wireshark &'
 export PATH=$PATH:~/.cargo/bin
 # source $HOME/.cargo/env
 
-export CXX=clang++-16
-export CC=clang-16
+export CXX=clang++-18
+export CC=clang-18
 
 grep timeplus /etc/hosts > /dev/null
 if [[ $? -ne 0 ]]; then
@@ -121,12 +121,10 @@ alias bigscreen='vncserver -geometry 2680x1440 :1'
 alias du1='du -h --exclude=./code --max-depth=1'
 
 # Fix for alpine linux
-unalias ls
-unalias ln
+unalias ls 2>&1 > /dev/null
+unalias ln 2>&1 > /dev/null
 
 export PATH="/usr/local/opt/llvm@15/bin:$PATH"
 export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
 export PKG_CONFIG_PATH=/usr/local/opt/openssl@1.1/lib/pkgconfig/
 
-export CXX=clang++
-export CC=clang

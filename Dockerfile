@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM ubuntu:24.04
 
 RUN yes | unminimize
 
@@ -6,7 +6,7 @@ RUN yes | unminimize
 ARG apt_archive="http://archive.ubuntu.com"
 RUN sed -i "s|http://archive.ubuntu.com|$apt_archive|g" /etc/apt/sources.list
 
-ENV DEBIAN_FRONTEND=noninteractive LLVM_VERSION=16 GCC_VERSION=12 GO_VERSION=1.20
+ENV DEBIAN_FRONTEND=noninteractive LLVM_VERSION=18 GCC_VERSION=14 GO_VERSION=1.22
 
 RUN apt-get update \
     && apt-get install \
@@ -25,7 +25,7 @@ RUN apt-get update \
     && echo "${LLVM_PUBKEY_HASH} /tmp/llvm-snapshot.gpg.key" | sha384sum -c \
     && apt-key add /tmp/llvm-snapshot.gpg.key \
     && export CODENAME="$(lsb_release --codename --short | tr 'A-Z' 'a-z')" \
-    && echo "deb https://apt.llvm.org/${CODENAME}/ llvm-toolchain-${CODENAME}-${LLVM_VERSION} main" >> \
+    && echo "deb https://apt.llvm.org/${CODENAME}/ llvm-toolchain-${CODENAME}-${LLVM_VERSION} main" 2> \
         /etc/apt/sources.list \
     && apt-get clean
 
@@ -102,8 +102,8 @@ RUN apt-get update \
 # install libc++
 RUN apt-get update \
     && apt-get install \
-        libc++abi-13-dev \
-        libc++-13-dev \
+        libc++abi-14-dev \
+        libc++-14-dev \
         --yes --no-install-recommends
 
 RUN apt-get update \
@@ -180,5 +180,6 @@ RUN curl https://raw.githubusercontent.com/satanson/cpp_etudes/master/javatree.p
 
 RUN curl https://raw.githubusercontent.com/satanson/cpp_etudes/master/csvtable.pl > /usr/local/bin/csvtable && chmod +x /usr/local/bin/csvtable
 
+RUN sysctl -w kernel.core_pattern=/tmp/core-%e.%p.%h.%t
 
 CMD ["/bin/zsh"]
