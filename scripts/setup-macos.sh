@@ -34,6 +34,30 @@ ln -sfn "$REPO/home/.claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"   # makes AGENT
 echo "==> WezTerm font smoothing (heavier strokes, matches Apple Terminal)"
 defaults write com.github.wez.wezterm AppleFontSmoothing -int 2
 
+echo "==> Agentic tools: treehouse (parallel git worktrees for AI agents)"
+# Pinned + checksum-verified install (NOT `curl|sh` or `go install @latest`).
+# To bump: update TREEHOUSE_VER and TREEHOUSE_SHA256 (from the release checksums.txt).
+# Note: `treehouse update` self-updates and drifts from this pin — re-run instead.
+TREEHOUSE_VER="v2.0.0"
+TREEHOUSE_SHA256="66022f36eb0c79d6f242025f266b782ac947b3a2817005f13425cbd18874f1f9"  # darwin-arm64
+if [ "$(uname -sm)" = "Darwin arm64" ]; then
+  tmp="$(mktemp -d)"
+  url="https://github.com/kunchenguid/treehouse/releases/download/${TREEHOUSE_VER}/treehouse-${TREEHOUSE_VER}-darwin-arm64.tar.gz"
+  curl -fsSL -o "$tmp/th.tar.gz" "$url"
+  got="$(shasum -a 256 "$tmp/th.tar.gz" | awk '{print $1}')"
+  if [ "$got" = "$TREEHOUSE_SHA256" ]; then
+    tar -xzf "$tmp/th.tar.gz" -C "$tmp"
+    mkdir -p "$HOME/.local/bin"
+    install -m 0755 "$tmp/treehouse" "$HOME/.local/bin/treehouse"
+    echo "    installed treehouse ${TREEHOUSE_VER} -> ~/.local/bin/treehouse"
+  else
+    echo "    !! checksum mismatch ($got) — skipping treehouse install" >&2
+  fi
+  rm -rf "$tmp"
+else
+  echo "    (skipped: not darwin-arm64)"
+fi
+
 cat <<'DONE'
 
 ==> Done.

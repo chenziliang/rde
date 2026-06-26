@@ -66,6 +66,17 @@ Then:
 - **render-markdown** heading colors are hand-tuned for 16-color mode (bold
   colored text, no harsh background bars) in `config/nvim/lua/plugins/markdown.lua`.
 
+## Agentic tools
+
+- **treehouse** (`~/.local/bin/treehouse`) — pool of pre-warmed git worktrees so
+  multiple AI agents can work a repo in parallel. Installed by `setup-macos.sh`
+  as a **pinned, checksum-verified** release binary (not `curl|sh` / `npx -y`).
+  Usage cheatsheet: XBrain `wiki/tools/treehouse-usage.md`.
+- The broader axi toolchain (gh-axi, chrome-devtools-axi, acpx, …) is
+  **deliberately not installed** — those run as agent skills via `npx -y`
+  (unpinned external code) and hold credentials/browser access. See the
+  security notes before adding them; prefer pinned, vetted, per-project installs.
+
 ## Keybinding references
 
 Full cheatsheets live in the XBrain wiki (`~/code/XBrain/wiki/tools/`):
