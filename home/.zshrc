@@ -104,27 +104,34 @@ alias wireshark='sudo /Applications/Wireshark.app/Contents/MacOS/Wireshark &'
 export PATH=$PATH:~/.cargo/bin
 # source $HOME/.cargo/env
 
-export CXX=clang++-18
-export CC=clang-18
+export CXX=/opt/homebrew/opt/llvm@21/bin/clang++
+export PKG_CONFIG_PATH=/usr/local/opt/openssl@1.1/lib/pkgconfig/
 
-grep timeplus /etc/hosts > /dev/null
-if [[ $? -ne 0 ]]; then
-    sudo sh -c 'echo "127.0.0.1 timeplus" >> /etc/hosts'
+# Don't use Apple vim
+if (command -v brew && brew list --formula | grep -c vim) > /dev/null 2>&1; then
+    alias vim="$(brew --prefix vim)/bin/vim"
 fi
 
-export PATH=$PATH:~/bin/clion/bin:~/bin/idea/bin
 
-alias clion='clion.sh &'
-alias idea='idea.sh &'
-alias laptop='vncserver -geometry 2000x1200 :1'
-alias bigscreen='vncserver -geometry 2680x1440 :1'
-alias du1='du -h --exclude=./code --max-depth=1'
+# bun completions
+[ -s "/Users/k/.bun/_bun" ] && source "/Users/k/.bun/_bun"
 
-# Fix for alpine linux
-unalias ls 2>&1 > /dev/null
-unalias ln 2>&1 > /dev/null
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:/Users/k/code/proton-enterprise/release-build/programs/:$PATH"
 
-export PATH="/usr/local/opt/llvm@15/bin:$PATH"
-export PATH="/usr/local/opt/openjdk@11/bin:$PATH"
-export PKG_CONFIG_PATH=/usr/local/opt/openssl@1.1/lib/pkgconfig/
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/k/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/k/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/k/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/k/google-cloud-sdk/completion.zsh.inc'; fi
+export PATH="$HOME/.local/bin:/Applications/Visual Studio Code.app/Contents/MacOS/:$PATH"
+
+# zsh-autosuggestions — fish-style grey inline history hints (accept with →)
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'   # dim grey suggestion text
 

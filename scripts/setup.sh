@@ -1,11 +1,11 @@
 #!/bin/bash
 
 cd ~/
-ln -s ~/code/rde/.zshrc
-ln -s ~/code/rde/.vimrc
-ln -s ~/code/rde/.tmux
-ln -s ~/code/rde/.tmux.conf
-ln -s ~/code/rde/.dir_colors
+ln -sfn ~/code/rde/home/.zshrc .zshrc
+ln -sfn ~/code/rde/home/.vimrc .vimrc
+ln -sfn ~/code/rde/home/.tmux .tmux
+ln -sfn ~/code/rde/home/.tmux.conf .tmux.conf
+ln -sfn ~/code/rde/home/.dir_colors .dir_colors
 
 mkdir -p ~/.vim/bundle
 git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
@@ -16,11 +16,17 @@ sed -i"" "s/<leader>q/<leader>h/g"  ~/.vim/bundle/ListToggle/plugin/listtoggle.v
 
 git clone --recursive https://github.com/sorin-ionescu/prezto.git "${ZDOTDIR:-$HOME}/.zprezto"
 
+# Add 'git' and 'syntax-highlighting' to zstyle
+#   'completion' \
+#   'git' \
+#   'syntax-highlighting' \
 sed -i"" "/^  'completion'/a \  'git' \\\\\n  'syntax-highlighting' \\\\" ~/.zprezto/runcoms/zpreztorc
+
+# Use vim key bindings
 sed -i"" "s/key-bindings 'emacs'/key-bindings 'vi'/g" ~/.zprezto/runcoms/zpreztorc
 
 sudo mkdir -p /usr/local/bin/
-sudo cp rde /usr/local/bin
+sudo cp ~/code/rde/scripts/rde /usr/local/bin
 sudo sh -c 'curl https://raw.githubusercontent.com/aws/aws-cli/develop/bin/aws_zsh_completer.sh > /usr/local/bin/aws_zsh_completer.sh' && sudo chmod +x /usr/local/bin/aws_zsh_completer.sh
 
 sudo sh -c 'curl https://raw.githubusercontent.com/llvm-mirror/clang/master/tools/clang-format/clang-format.py > /usr/local/bin/clang-format.py'
