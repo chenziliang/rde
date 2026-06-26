@@ -24,6 +24,13 @@ done
 # gdb pretty-printer is referenced by .gdbinit at $HOME level
 ln -sfn "$REPO/home/pretty-printer-libcxx-gdb" "$HOME/pretty-printer-libcxx-gdb"
 
+echo "==> Symlink global agent instructions (\$HOME)"
+for f in AGENTS.md OPINIONS.md VOICE.md; do
+  ln -sfn "$REPO/home/$f" "$HOME/$f"
+done
+mkdir -p "$HOME/.claude"
+ln -sfn "$REPO/home/.claude/CLAUDE.md" "$HOME/.claude/CLAUDE.md"   # makes AGENTS.md global for Claude Code
+
 echo "==> WezTerm font smoothing (heavier strokes, matches Apple Terminal)"
 defaults write com.github.wez.wezterm AppleFontSmoothing -int 2
 
