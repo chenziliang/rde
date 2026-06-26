@@ -66,16 +66,38 @@ Then:
 - **render-markdown** heading colors are hand-tuned for 16-color mode (bold
   colored text, no harsh background bars) in `config/nvim/lua/plugins/markdown.lua`.
 
-## Agentic tools
+## Agentic tools (Kun Chen's AXI toolchain)
 
-- **treehouse** (`~/.local/bin/treehouse`) — pool of pre-warmed git worktrees so
-  multiple AI agents can work a repo in parallel. Installed by `setup-macos.sh`
-  as a **pinned, checksum-verified** release binary (not `curl|sh` / `npx -y`).
-  Usage cheatsheet: XBrain `wiki/tools/treehouse-usage.md`.
-- The broader axi toolchain (gh-axi, chrome-devtools-axi, acpx, …) is
-  **deliberately not installed** — those run as agent skills via `npx -y`
-  (unpinned external code) and hold credentials/browser access. See the
-  security notes before adding them; prefer pinned, vetted, per-project installs.
+Installed by **`scripts/setup-agentic.sh`** (optional layer). All repos were
+security-audited 2026-06-26; we build from cloned SOURCE, not `curl|sh` / `npx -y
+latest`, so the running code matches what was reviewed.
+
+**CLIs** (on PATH):
+- **treehouse** — pinned, checksum-verified release binary (via `setup-macos.sh`).
+  Pool of pre-warmed git worktrees for parallel agents.
+- **no-mistakes** — Go source build (`~/.local/bin`); gates `git push`. Source
+  build bakes in NO telemetry.
+- **gnhf** — overnight autonomous agent runs (npm source build + link).
+- **lavish-axi** — HTML artifact editor (npm source build + link).
+- **acpx** — headless ACP client to drive agents (npm source build + link).
+- **firstmate** — no install; it's `AGENTS.md` + skills + scripts in `~/code/firstmate`.
+
+**Agent skills** → `~/.agents/skills/`, symlinked into `~/.claude/skills/` so
+Claude Code loads them: `axi`, `gh-axi`, `tasks-axi`, `chrome-devtools-axi`,
+`no-mistakes`.
+
+**Security audit summary (2026-06-26):** no credential exfiltration, no command
+injection, no malicious install hooks in any of the 7 audited repos (axi,
+treehouse, firstmate, no-mistakes, gnhf, lavish-axi, acpx). Notes:
+- Default-on Umami telemetry in gnhf / no-mistakes / lavish-axi → **disabled via
+  `home/.zshrc`** (`*_TELEMETRY=0`).
+- **acpx**: do NOT run `acpx config init` (approve-all default); never run acpx
+  in an untrusted repo — its `.acpxrc.json` is auto-trusted and can redefine the
+  launched command + auto-approve everything.
+- Prefer pinned/source-built installs over the tools' own `curl|sh` scripts.
+
+Usage cheatsheets in XBrain `wiki/tools/` (treehouse) and
+`wiki/agents/agentic-engineering-toolchain.md` (ecosystem map).
 
 ## Keybinding references
 
