@@ -135,3 +135,9 @@ export PATH="$HOME/.local/bin:/Applications/Visual Studio Code.app/Contents/MacO
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'   # dim grey suggestion text
 
+
+# Opt out of agentic-tool telemetry (Umami phone-home to a.kunchenguid.com).
+# Audited 2026-06-26: payloads are anonymous metadata only, but disable anyway.
+export GNHF_TELEMETRY=0
+export NO_MISTAKES_TELEMETRY=0
+export LAVISH_AXI_TELEMETRY=0
