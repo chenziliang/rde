@@ -7,7 +7,7 @@ REPO="$HOME/code/rde"
 cd "$REPO"
 
 echo "==> Homebrew formulae"
-brew install neovim fzf fd lazygit ripgrep tmux zsh-autosuggestions
+brew install neovim fzf fd lazygit ripgrep tmux zsh-autosuggestions awscli
 
 echo "==> Homebrew casks (terminal + fonts)"
 brew install --cask wezterm font-hack-nerd-font font-jetbrains-mono-nerd-font
@@ -23,6 +23,13 @@ for f in .zshrc .vimrc .tmux .tmux.conf .tmux_local.conf .dir_colors .gdbinit .l
 done
 # gdb pretty-printer is referenced by .gdbinit at $HOME level
 ln -sfn "$REPO/home/pretty-printer-libcxx-gdb" "$HOME/pretty-printer-libcxx-gdb"
+
+echo "==> Vim: Vundle plugin manager + plugins"
+# .vimrc guards on this directory, so vim degrades gracefully without it.
+if [ ! -d "$HOME/.vim/bundle/Vundle.vim" ]; then
+  git clone https://github.com/VundleVim/Vundle.vim.git "$HOME/.vim/bundle/Vundle.vim"
+fi
+vim +PluginInstall +qall >/dev/null 2>&1 </dev/null || true
 
 echo "==> Symlink global agent instructions (\$HOME)"
 for f in AGENTS.md OPINIONS.md VOICE.md; do

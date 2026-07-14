@@ -232,6 +232,9 @@ let g:rustfmt_autosave = 1
 filetype off   " required!
 set rtp+=~/.vim/bundle/Vundle.vim
 " call vundle#rc()
+" Skip the plugin list when Vundle isn't cloned yet, otherwise every command
+" below is an unknown-function error. scripts/setup-macos.sh clones it.
+if isdirectory(expand('~/.vim/bundle/Vundle.vim'))
 call vundle#begin()
 
 " let Vundle manage Vundle
@@ -287,9 +290,13 @@ Bundle 'VimIM'
 " Put your non-Plugin stuff after this line
 "
 call vundle#end()
+endif
 filetype plugin indent on
 
-execute pathogen#infect()
+" pathogen ships as a Vundle bundle, so it's absent until :PluginInstall runs.
+if !empty(globpath(&rtp, 'autoload/pathogen.vim'))
+  execute pathogen#infect()
+endif
 syntax on
 
 
@@ -299,6 +306,13 @@ let g:ycm_global_ycm_extra_conf = '~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extr
 let g:ycm_confirm_extra_conf = 1
 let g:syntastic_always_populate_loc_list = 1
 " let g:syntastic_cpp_compiler_options = ' -std=c++11 -stdlib=libc++'
+
+" ListToggle
+" Defaults are <leader>q / <leader>l: <leader>q is :q! above, and the <leader>c*
+" space belongs to NERDCommenter/VCSCommand. Give the two list toggles their own
+" <leader>l* group.
+let g:lt_quickfix_list_toggle_map = '<leader>lq'
+let g:lt_location_list_toggle_map = '<leader>ll'
 
 " CTRLP
 " ctrl + c or g -- close ctrp

@@ -23,6 +23,8 @@ cd ~/code/rde && ./scripts/setup-macos.sh
 See [docs/MACOS-SETUP.md](docs/MACOS-SETUP.md) for the full write-up and the
 fine-tuning rationale (Neovim, WezTerm, tmux, zsh).
 
+`MyPro.terminal` is the MacOS terminal profile which is used by default.
+
 **Linux / dev container:** see `scripts/setup.sh`.
 
 ## Notes

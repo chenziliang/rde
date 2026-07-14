@@ -96,7 +96,19 @@ alias rdpproxy='ssh -N -L 13390:localhost:3389 clouddesk &'
 export EDITOR=vim
 export VISUAL=vim
 
-source /usr/local/bin/aws_zsh_completer.sh
+# AWS CLI completion. awscli v2 ships aws_zsh_completer.sh under zsh's
+# site-functions (v1's /usr/local/bin path is long gone). The script needs
+# compinit to have run first — prezto normally does that, but it may be absent.
+for _aws_completer in \
+    /opt/homebrew/share/zsh/site-functions/aws_zsh_completer.sh \
+    /usr/local/share/zsh/site-functions/aws_zsh_completer.sh; do
+    if [[ -s "$_aws_completer" ]]; then
+        (( $+functions[compdef] )) || { autoload -Uz compinit && compinit -C }
+        source "$_aws_completer"
+        break
+    fi
+done
+unset _aws_completer
 
 alias ghost='ssh ghost@ghost'
 alias wireshark='sudo /Applications/Wireshark.app/Contents/MacOS/Wireshark &'
@@ -129,7 +141,7 @@ if [ -f '/Users/k/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/k/google-clou
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/k/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/k/google-cloud-sdk/completion.zsh.inc'; fi
-export PATH="$HOME/.local/bin:/Applications/Visual Studio Code.app/Contents/MacOS/:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
 
 # zsh-autosuggestions — fish-style grey inline history hints (accept with →)
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
@@ -141,3 +153,5 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'   # dim grey suggestion text
 export GNHF_TELEMETRY=0
 export NO_MISTAKES_TELEMETRY=0
 export LAVISH_AXI_TELEMETRY=0
+
+alias dev='ssh -i ~/.ssh/ken-key_Hyperstack.txt ubuntu@69.19.140.50'
